@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Space Mission — School Hackathon Project</title>
+  <link rel="stylesheet" href="bananastyle.css">
+</head>
+<body data-theme="dark">
+  <div class="page-glow"></div>
+
+  <div class="victory-overlay hidden" id="victory-overlay" aria-hidden="true">
+    <div class="victory-backdrop"></div>
+    <div class="banana-ship banana-ship--victory" aria-hidden="true"><img src="banana-ship.svg" alt=""></div>
+    <div class="victory-panel card">
+      <div class="victory-star" aria-hidden="true">
+        <span class="star-core">★</span>
+      </div>
+      <div class="victory-particles" aria-hidden="true">
+        <span class="particle particle-1"></span>
+        <span class="particle particle-2"></span>
+        <span class="particle particle-3"></span>
+        <span class="particle particle-4"></span>
+        <span class="particle particle-5"></span>
+        <span class="particle particle-6"></span>
+      </div>
+      <p class="eyebrow" id="victory-eyebrow">Mission Complete</p>
+      <h2 id="victory-title">Mission Accomplished!</h2>
+      <p class="description victory-subtitle" id="victory-subtitle">You explored the entire Solar System and proved your expertise!</p>
+      <div class="status-grid end-stats victory-stats">
+        <div class="status-card">
+          <span class="status-label" id="victory-score-label">Final Score</span>
+          <span class="status-value" id="victory-score">0</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label" id="victory-fuel-label">Fuel Left</span>
+          <span class="status-value" id="victory-fuel">0</span>
+        </div>
+      </div>
+      <button class="main-button" id="victory-button">Play Again</button>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="brand">
+      <div class="brand-mark">
+        <img src="images/Banana Studio Logo.png" alt="Banana Studio logo">
+      </div>
+      <div>
+        <p class="brand-label" id="header-label">Educational Hackathon Project</p>
+        <h1 class="brand-title" id="header-title">Space Mission</h1>
+      </div>
+    </div>
+
+    <div class="header-controls">
+      <div class="control-group">
+        <label for="language-select" id="language-label">Language</label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <option value="he">עברית</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label for="theme-select" id="theme-label">Theme</label>
+        <select id="theme-select">
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+
+      <button class="feedback-button" id="feedback-button" type="button">Feedback</button>
+    </div>
+  </header>
+
+  <main class="site-main">
+    <section class="screen card active" id="start-screen">
+      <p class="eyebrow" id="start-eyebrow">Student Team · School Hackathon 2026</p>
+      <h2 id="start-title">Space Mission</h2>
+      <p class="brand-label" id="start-credit">Created by Banana Studio</p>
+      <p class="description" id="start-text"></p>
+
+      <div class="info-box">
+        <h3 id="brief-title">How to Play</h3>
+        <p id="brief-text"></p>
+      </div>
+
+      <button class="main-button" id="start-button">Launch Mission</button>
+    </section>
+
+    <section class="screen card" id="game-screen">
+      <div class="status-grid">
+        <div class="status-card">
+          <span class="status-label" id="score-label">Score</span>
+          <span class="status-value" id="score-value">0</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label" id="fuel-label">Fuel</span>
+          <span class="status-value" id="fuel-value">100</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label" id="progress-label">Progress</span>
+          <span class="status-value" id="progress-value">1 / 8</span>
+        </div>
+      </div>
+
+      <div class="planet-card">
+        <div class="planet-visual" id="planet-visual"></div>
+
+        <div class="planet-content">
+          <p class="eyebrow" id="planet-label">Current Planet</p>
+          <h2 id="planet-name">Unknown Planet</h2>
+          <p class="description" id="planet-fact"></p>
+        </div>
+      </div>
+
+      <div class="mission-track" aria-hidden="true">
+        <div class="mission-track-bar"></div>
+        <div class="mission-track-ship"><img src="banana-ship.svg" alt=""></div>
+      </div>
+
+      <div class="question-card">
+        <h3 id="question-text"></h3>
+        <div class="answers" id="answer-buttons"></div>
+        <p class="feedback" id="feedback-text"></p>
+        <div class="action-buttons">
+          <button class="main-button hidden" id="next-button">Next</button>
+          <button class="main-button hidden secondary-button" id="retry-button">Restart Mission</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen card" id="end-screen">
+      <p class="eyebrow" id="end-eyebrow">Mission Complete</p>
+      <h2 id="end-title">Mission Complete</h2>
+      <p class="description" id="end-message"></p>
+
+      <div class="status-grid end-stats">
+        <div class="status-card">
+          <span class="status-label" id="final-score-label">Final Score</span>
+          <span class="status-value" id="final-score">0</span>
+        </div>
+        <div class="status-card">
+          <span class="status-label" id="final-fuel-label">Fuel Left</span>
+          <span class="status-value" id="final-fuel">0</span>
+        </div>
+      </div>
+
+      <button class="main-button" id="restart-button">Restart Mission</button>
+    </section>
+  </main>
+
+  <div class="banana-ship banana-ship--ambient" aria-hidden="true"><img src="banana-ship.svg" alt=""></div>
+
+  <footer class="site-footer">
+    <p id="footer-message">Built for learning · Presented at the School Hackathon 2026</p>
+    <p id="footer-credit">Educational Hackathon Project about Space Exploration · Student Team Project</p>
+    <img class="footer-pegi" src="images/pegi 10.png" alt="PEGI 10 rating">
+  </footer>
+
+  <div class="feedback-overlay hidden" id="feedback-overlay" aria-hidden="true" role="dialog" aria-labelledby="feedback-heading">
+    <div class="feedback-backdrop"></div>
+    <div class="feedback-panel card">
+      <h3 id="feedback-heading">Send Feedback</h3>
+      <textarea class="feedback-textarea" id="feedback-textarea" rows="4" placeholder="Tell us what you think..."></textarea>
+      <div class="feedback-actions">
+        <button class="main-button secondary-button" id="feedback-cancel">Cancel</button>
+        <button class="main-button" id="feedback-send">Send</button>
+      </div>
+      <p class="feedback-thanks hidden" id="feedback-thanks">Thanks for the feedback! 🍌</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
